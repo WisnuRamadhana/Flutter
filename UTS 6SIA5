@@ -1,0 +1,97 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: 'Routing Navigation',
+    initialRoute: '/',
+    routes: {
+      '/' : (context) => HalamanPertama(),
+      HalamanKedua.routeName : (context) => HalamanKedua(),
+      HalamanKetiga.routeName : (context) => HalamanKetiga(),
+      HalamanKeempat.routeName : (context) => HalamanKeempat(),
+      HalamanKelima.routeName : (context) => HalamanKelima(),
+    },
+  ));
+}
+
+class HalamanPertama extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Muhammad Wisnu Ramadhana - 6SIA5'),
+      ),
+      body: Center(
+        child: ListView(
+          children: <Widget>[
+            ElevatedButton(
+              child: Text('Halaman Kedua'),
+              onPressed: () {
+                Navigator.pushNamed(context, HalamanKedua.routeName);
+              },
+            ),
+            ElevatedButton(
+              child: Text('Halaman Ketiga'),
+              onPressed: () {
+                Navigator.pushNamed(context, HalamanKetiga.routeName);
+              },
+            ),
+            ElevatedButton(
+              child: Text('Halaman Keempat'),
+              onPressed: () {
+                Navigator.pushNamed(context, HalamanKeempat.routeName);
+              },
+            ),
+            ElevatedButton(
+              child: Text('Halaman Kelima'),
+              onPressed: () {
+                Navigator.pushNamed(context, HalamanKelima.routeName);
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class HalamanKedua extends StatelessWidget {
+  static const String routeName = "/halamanKedua";
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Halaman Kedua"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Kembali Ke Menu Utama'),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class HalamanKetiga extends StatelessWidget {
+  static const String routeName = "/halamanKetiga";
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Halaman Ketiga"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Kembali Ke Menu Utama'),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+}
